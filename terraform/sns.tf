@@ -18,15 +18,15 @@ resource "aws_sns_topic_policy" "topic_policy" {
                     }
                     Resource  = aws_sns_topic.topic.arn
                     Sid       = "AWSBudgetsSNSPublishingPermissions"
-                },
+                }
             ]
         }
     )
 }
 
 # サブスクリプション
-# resource "aws_sns_topic_subscription" "default" {
-#     topic_arn = aws_sns_topic.topic.arn
-#     protocol  = "lambda"
-#     endpoint  = aws_lambda_function.topic.arn
-# }
+resource "aws_sns_topic_subscription" "topic_subscription" {
+    topic_arn = aws_sns_topic.topic.arn
+    protocol  = "lambda"
+    endpoint  = aws_lambda_function.lambda_function.arn
+}
