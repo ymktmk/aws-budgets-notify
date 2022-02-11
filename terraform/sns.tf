@@ -1,6 +1,6 @@
 # トピック
 resource aws_sns_topic topic {
-    name = "aws-fee-notify"
+    name = "aws-budgets-notify"
 }
 
 # トピックポリシー
