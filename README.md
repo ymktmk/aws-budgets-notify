@@ -4,13 +4,12 @@
 ・SNSからLambdaへ
 ・Lambdaはの言語はGo
 ・ログはCloudWatchに転送設定していない
+・デプロイにはGitHub Actions使用
+
+これでAWSのシークレットキー確認
 
 ```
-$ cd terraform
-
-$ sh build.sh
-
-$ terraform apply
+$ cat ~/.aws/credentials
 ```
 
 # 参考文献
