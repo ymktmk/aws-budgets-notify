@@ -1,7 +1,17 @@
 # aws-budgets-notify
 
-AWSの予算を超えるとLINEに通知するBot
-Terraformでインフラをコード化
+・AWS Budgetsにて予算を決定し、閾値を超えるとSNSへ
+・SNSからLambdaへ
+・Lambdaはの言語はGo
+・ログはCloudWatchに転送設定していない
+
+```
+$ cd terraform
+
+$ sh build.sh
+
+$ terraform apply
+```
 
 # 参考文献
 

@@ -1,6 +1,8 @@
 #!/bin/bash
 go get -v
-# ビルド環境がダメ
-GOOS=linux go build -v ../main.go
+
+GOARCH=amd64 GOOS=linux go build ../main.go
+
 zip function.zip main
+
 rm main
