@@ -2,21 +2,20 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-type MyEvent struct {
-    Name string `json:"Name"`
+type RawHandler struct {
 }
 
-func HandleRequest(ctx context.Context, name MyEvent) (string, error) {
-	log.Printf("lambda finished! response will be returned!")
-	return fmt.Sprintf("Hello %s!", name.Name), nil
+func (h *RawHandler) Invoke(ctx context.Context, payload []byte) ([]byte, error) {
+	log.Println("---payload start---")
+	log.Println(string(payload))
+	log.Println("--- payload end ---")
+	return []byte("completed"), nil
 }
 
 func main() {
-	log.Printf("lambda started!")
-    lambda.Start(HandleRequest)
+	lambda.StartHandler(&RawHandler{})
 }
